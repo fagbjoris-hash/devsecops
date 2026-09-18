@@ -21,10 +21,10 @@ def echo():
     name = request.args.get("name", "student")
     command = "echo " + name
     result = subprocess.run(
-        command,
-        shell=True,
+        ["echo", name],
         capture_output=True,
-        text=True
+        text=True,
+	check=False
     )
     return result.stdout
 
